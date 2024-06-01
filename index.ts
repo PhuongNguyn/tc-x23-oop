@@ -52,7 +52,7 @@ class User {
 // create instance of class
 const product2 = new Product("Car 2", 2000, 20);
 
-class Animals {
+abstract class Animals {
   private age: number;
   private eyes: number;
 
@@ -69,6 +69,16 @@ class Animals {
     return this.age
   }
 
+  action() {
+    console.log("action animals")
+  }
+
+  caculateWeight(age: number, quantity: number): number {
+    return age * quantity
+  }
+
+  abstract play(): void
+
 }
 
 
@@ -82,7 +92,21 @@ class Dog extends Animals {
   }
 
 
+  // Overiding => cùng 1 phương thức nhưng nhiều thực thi khác nhau cùng kiểu dữ liệu trả về
+  action() {
+    console.log("action dog")
+  }
+
+  // Overloading => cùng 1 phương thức nhưng nhiều kiểu dữ liệu trả về, và nhiều params truyền vào
+  // caculateWeight(age: number, quantity: number, name: string) {
+
+  // }
+
   run() { }
+
+  play(): void {
+    // implement lai het
+  }
 
 }
 
@@ -99,6 +123,10 @@ class Cat extends Animals {
 
   }
 
+  play(): void {
+
+  }
+
 }
 
 class Bird extends Animals {
@@ -112,7 +140,14 @@ class Bird extends Animals {
   fly() {
 
   }
+
+  play(): void {
+
+  }
 }
 
-const bird = new Bird(5, 2, 2)
-bird.getAge()
+// const aninal = new Animals(3, 2)
+// aninal.action()
+
+// const dog = new Dog(3, 3, 2)
+// dog.action()
